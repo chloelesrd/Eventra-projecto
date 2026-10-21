@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTRA | Tu viaje a festivales y conciertos sin complicaciones</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#070812',
+                            card: '#101426',
+                            pink: '#FF007F',
+                            yellow: '#FFC700',
+                            purple: '#9D4EDD',
+                            electricBlue: '#00F5FF',
+                            neonLime: '#00FF85',
+                            accentPink: '#FF2A85'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'festive-pink': '0 0 30px -5px rgba(255, 0, 127, 0.6)',
+                        'festive-yellow': '0 0 30px -5px rgba(255, 199, 0, 0.5)',
+                        'festive-blue': '0 0 30px -5px rgba(0, 245, 255, 0.5)',
+                        'festive-lime': '0 0 25px -5px rgba(0, 255, 133, 0.5)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.45)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #070812;
+            color: #F3F4F6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Festive Spotlights & Laser Glows */
+        .glow-blob-pink {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle, #FF007F 0%, transparent 70%);
+        }
+
+        .glow-blob-yellow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: 0.45;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle, #FFC700 0%, transparent 70%);
+        }
+
+        .glow-blob-blue {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle, #00F5FF 0%, transparent 70%);
+        }
+
+        /* Glassmorphism card */
+        .glass-card {
+            background: rgba(16, 20, 38, 0.75);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .glass-nav {
+            background: rgba(7, 8, 18, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Multi-tone Festive Gradient Text */
+        .gradient-text-festive {
+            background: linear-gradient(135deg, #FF007F 0%, #FFC700 45%, #00F5FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Festive Card Borders */
+        .gradient-border-card {
+            position: relative;
+            background: rgba(16, 20, 38, 0.85);
+            border-radius: 1.25rem;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gradient-border-card::before {
+            content: '';
+            position: absolute;
+            inset: -1.5px;
+            border-radius: 1.3rem;
+            padding: 1.5px;
+            background: linear-gradient(135deg, rgba(255, 0, 127, 0.6), rgba(255, 199, 0, 0.4), rgba(0, 245, 255, 0.6));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .gradient-border-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 15px 35px -10px rgba(255, 0, 127, 0.35);
+        }
+
+        .gradient-border-card:hover::before {
+            background: linear-gradient(135deg, #FF007F, #FFC700, #00FF85, #00F5FF);
+        }
+
+        /* Pulse Animation for Party Vibe */
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.08); opacity: 1; }
+        }
+
+        .animate-glow-pulse {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 9px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070812;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #251B42;
+            border-radius: 6px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF007F;
+        }
+    </style>
+</head>
+<body class="relative min-h-screen selection:bg-brand-pink selection:text-white">
+
+    <!-- Glowing Festive Stage Lights in Background -->
+    <div class="glow-blob-pink w-[600px] h-[600px] -top-30 -left-20 animate-glow-pulse"></div>
+    <div class="glow-blob-yellow w-[500px] h-[500px] top-[20%] -right-20"></div>
+    <div class="glow-blob-blue w-[650px] h-[650px] top-[55%] -left-30"></div>
